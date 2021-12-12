@@ -27,8 +27,32 @@
 출력설명
 (2, 2), (4, 3), (4, 5)와 (10, 3)를 할인받아 (5, 3)에 사면 비용이 4+7+9+8=28입니다.
  */
+/**
+ * 선생님이 현재 예산으로 선물할 수 있는 최대 학생 수
+ * @param m: 예산
+ * @param product: 학생별 받고자 하는 [상품가격, 배송비]
+ */
 function solution (m, product) {
   let answer = 0;
+  product.sort((a, b) => (a[0] + a[1]) - (b[0] + b[1]))
+  for (let i = 0; i < product.length; i++) {
+    const productCoast = product[i][0]
+    const deliveryCoast = product[i][1]
+    let yourMoney = m - (productCoast / 2 + deliveryCoast)
+    let giftCnt = 1
+    for (let j = 0; j < product.length; j++) {
+      if (j === i) continue
+      const secondProductCoast = product[j][0]
+      const secondDeliveryCoast = product[j][1]
+      if ((secondProductCoast + secondDeliveryCoast) > yourMoney) break
+      if ((secondProductCoast + secondDeliveryCoast) <= yourMoney) {
+        yourMoney -= (secondDeliveryCoast + secondDeliveryCoast)
+        giftCnt++
+      }
+    }
+    answer = Math.max(answer, giftCnt)
+  }
+
   return answer;
 }
 
