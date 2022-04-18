@@ -58,7 +58,6 @@ function solution (board, moves) {
         const tmp = board[i][pos]
         board[i][pos] = 0
         if (tmp === myStack[myStack.length - 1]) {
-          console.log(tmp, 'zzz')
           myStack.pop()
           answer += 2
         } else {
