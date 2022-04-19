@@ -7,3 +7,9 @@
 ### 버블정렬
 
 <img src="./버블정렬.png" style="width: 1000px" alt="선택정렬">
+
+---
+
+### 삽입정렬
+
+<img src="./삽입정렬.png" style="width: 1000px" alt="선택정렬">
